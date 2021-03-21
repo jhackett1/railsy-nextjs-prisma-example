@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "postinstall": "prisma db push --preview-feature",
     "start": "next start"
   },
   "keywords": [],
