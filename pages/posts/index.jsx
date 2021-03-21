@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useSession } from "next-auth/client"
 import { useRouter } from "next/router"
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const posts = await prisma.post.findMany()
   return { props: { posts } }
 }
