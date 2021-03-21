@@ -11,8 +11,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@prisma/cli": "2.10.2",
-    "@prisma/client": "^2.10.2",
+    "@prisma/cli": "2.19.0",
+    "@prisma/client": "^2.19.0",
     "formik": "^2.2.6",
     "next": "9.5.5",
     "next-auth": "^3.13.2",
