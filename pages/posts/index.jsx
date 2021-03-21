@@ -51,7 +51,7 @@ const Index = ({ posts }) => {
       </Layout>
     )
 
-  return </p>
+  return <p>bugger off</p>
 }
 
 export default Index
