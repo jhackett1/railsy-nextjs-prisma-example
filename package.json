@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next",
+    "postinstall": "prisma generate",
     "build": "next build",
     "start": "next start"
   },
