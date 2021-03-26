@@ -18,7 +18,7 @@ After logging in, users can also create, edit and delete posts.
 You need Node.js and NPM installed, along with a PostgreSQL database.
 
 ```
-npx create-next-app <your-app-name> -e https://github.com/jhackett1/railsy-nextjs-prisma-example
+npx create-next-app -e https://github.com/jhackett1/railsy-nextjs-prisma-example
 ```
 
 This will clone the repo and install the dependencies with [create-next-app](https://nextjs.org/docs/api-reference/create-next-app).
