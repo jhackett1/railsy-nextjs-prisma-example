@@ -2,9 +2,12 @@ import React from "react"
 import Link from "next/link"
 import Layout from "../../../components/Layout"
 import Router from "next/router"
+import { useSession } from "next-auth/client"
 
 export const getServerSideProps = async ({ req, params }) => {
-  const res = await fetch(`${process.env.API_HOST}/api/posts/${params.id}`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_HOST}/api/posts/${params.id}`
+  )
   const post = await res.json()
   return {
     props: post,
@@ -12,33 +15,41 @@ export const getServerSideProps = async ({ req, params }) => {
 }
 
 const destroyPost = async id => {
-  await fetch(`${process.env.API_HOST}/api/posts/${id}`, {
+  await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/posts/${id}`, {
     method: "DELETE",
   })
   Router.push("/posts")
 }
 
-const Show = ({ id, title, content }) => (
-  <Layout>
-    <h1>Post</h1>
+const Show = ({ id, title, content }) => {
+  const [session, loading] = useSession()
 
-    <p>
-      <strong>Title:</strong> {title}
-    </p>
-    <p>
-      <strong>Content:</strong> {content}
-    </p>
+  return (
+    <Layout>
+      <h1>Post</h1>
 
-    <Link href={`/posts/${id}/edit`}>
-      <a>Edit</a>
-    </Link>
+      <p>
+        <strong>Title:</strong> {title}
+      </p>
+      <p>
+        <strong>Content:</strong> {content}
+      </p>
 
-    <button onClick={() => destroyPost(id)}>Destroy</button>
+      {session && (
+        <>
+          <Link href={`/posts/${id}/edit`}>
+            <a>Edit</a>
+          </Link>
 
-    <Link href="/posts">
-      <a>Back to posts</a>
-    </Link>
-  </Layout>
-)
+          <button onClick={() => destroyPost(id)}>Destroy</button>
+        </>
+      )}
+
+      <Link href="/posts">
+        <a>Back to posts</a>
+      </Link>
+    </Layout>
+  )
+}
 
 export default Show

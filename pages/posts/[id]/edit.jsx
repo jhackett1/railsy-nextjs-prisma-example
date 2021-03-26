@@ -5,7 +5,9 @@ import { Formik, Form, Field } from "formik"
 import PostForm from "../../../components/PostForm"
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await fetch(`${process.env.API_HOST}/api/posts/${params.id}`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_HOST}/api/posts/${params.id}`
+  )
   const post = await res.json()
   return {
     props: post,
@@ -14,8 +16,9 @@ export const getServerSideProps = async ({ params }) => {
 
 const Edit = post => {
   const handleSubmit = async values => {
+    console.log(`${process.env.NEXT_PUBLIC_API_HOST}/api/posts/${post.id}`)
     try {
-      await fetch(`${process.env.API_HOST}/api/posts/${post.id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/posts/${post.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

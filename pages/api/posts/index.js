@@ -1,16 +1,22 @@
 import prisma from "../../../lib/prisma"
+import { getSession } from "next-auth/client"
 
-export default async function handle(req, res) {
+export default async (req, res) => {
   let result
   if (req.method === "POST") {
     // CREATE
-    const { title, content } = req.body
-    result = await prisma.post.create({
-      data: {
-        title: title,
-        content: content,
-      },
-    })
+    const session = await getSession({ req })
+    if (session) {
+      const { title, content } = req.body
+      result = await prisma.post.create({
+        data: {
+          title: title,
+          content: content,
+        },
+      })
+    } else {
+      res.status(401)
+    }
   } else {
     // INDEX
     result = await prisma.post.findMany()

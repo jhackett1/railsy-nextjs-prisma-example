@@ -8,6 +8,7 @@ const authHandler = (req, res) =>
     providers: [
       Providers.Email({
         sendVerificationRequest: async ({ url }) => {
+          // for local development, just log the token url to the console
           return await console.log(url)
         },
       }),
