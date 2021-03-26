@@ -7,7 +7,7 @@ import PostForm from "../../components/PostForm"
 const New = () => {
   const handleSubmit = async values => {
     try {
-      await fetch("/api/post", {
+      await fetch(`${process.env.API_HOST}/api/posts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

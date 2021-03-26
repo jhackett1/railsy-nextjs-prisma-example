@@ -5,11 +5,8 @@ import { Formik, Form, Field } from "formik"
 import PostForm from "../../../components/PostForm"
 
 export const getServerSideProps = async ({ params }) => {
-  const post = await prisma.post.findFirst({
-    where: {
-      id: Number(params?.id) || -1,
-    },
-  })
+  const res = await fetch(`${process.env.API_HOST}/api/posts/${params.id}`)
+  const post = await res.json()
   return {
     props: post,
   }
@@ -18,7 +15,7 @@ export const getServerSideProps = async ({ params }) => {
 const Edit = post => {
   const handleSubmit = async values => {
     try {
-      await fetch(`/api/post/${post.id}`, {
+      await fetch(`${process.env.API_HOST}/api/posts/${post.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

@@ -2,21 +2,17 @@ import React from "react"
 import Link from "next/link"
 import Layout from "../../../components/Layout"
 import Router from "next/router"
-import prisma from "../../../lib/prisma"
 
-export const getServerSideProps = async ({ params }) => {
-  const post = await prisma.post.findFirst({
-    where: {
-      id: Number(params?.id) || -1,
-    },
-  })
+export const getServerSideProps = async ({ req, params }) => {
+  const res = await fetch(`${process.env.API_HOST}/api/posts/${params.id}`)
+  const post = await res.json()
   return {
     props: post,
   }
 }
 
 const destroyPost = async id => {
-  await fetch(`/api/post/${id}`, {
+  await fetch(`${process.env.API_HOST}/api/posts/${id}`, {
     method: "DELETE",
   })
   Router.push("/posts")

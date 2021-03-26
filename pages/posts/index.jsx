@@ -1,9 +1,9 @@
 import Layout from "../../components/Layout"
-import prisma from "../../lib/prisma"
 import Link from "next/link"
 
 export const getServerSideProps = async () => {
-  const posts = await prisma.post.findMany()
+  const res = await fetch(`${process.env.API_HOST}/api/posts`)
+  const posts = await res.json()
   return { props: { posts } }
 }
 
