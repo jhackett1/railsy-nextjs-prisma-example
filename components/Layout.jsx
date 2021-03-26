@@ -1,10 +1,8 @@
 import React from "react"
 import Link from "next/link"
-import { useRouter } from "next/router"
 import { signOut, useSession } from "next-auth/client"
 
 const Layout = props => {
-  const router = useRouter()
   const [session, loading] = useSession()
 
   let links
@@ -26,8 +24,7 @@ const Layout = props => {
   if (session) {
     links = (
       <p>
-        {session.user.name || "Unknown name"} /{" "}
-        {session.user.email || "Unknown email"}
+        You are logged in as {session.user.email || "Unknown email"}
         <button onClick={() => signOut()}>Log out</button>
       </p>
     )

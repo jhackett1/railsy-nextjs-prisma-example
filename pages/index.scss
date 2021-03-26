@@ -17,3 +17,13 @@ td {
 a {
   margin-right: 10px;
 }
+
+[role="alert"] {
+  color: rgb(219, 61, 61);
+}
+
+label,
+input,
+textarea {
+  display: block;
+}

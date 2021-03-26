@@ -1,19 +1,24 @@
 import { Formik, Form, Field } from "formik"
+import { postSchema } from "../lib/validators"
 
 const PostForm = ({ initialValues, onSubmit }) => {
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
-      {({ isSubmitting }) => (
+    <Formik
+      validationSchema={postSchema}
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+    >
+      {({ touched, errors, isSubmitting }) => (
         <Form>
           <label htmlFor="title">Title</label>
-          <br />
+          {touched.title && errors.title && <p role="alert">{errors.title}</p>}
           <Field name="title" id="title" />
-          <br />
 
           <label htmlFor="content">Content</label>
-          <br />
+          {touched.content && errors.content && (
+            <p role="alert">{errors.content}</p>
+          )}
           <Field name="content" id="content" as="textarea" />
-          <br />
 
           <button disabled={isSubmitting}>Save changes</button>
         </Form>
