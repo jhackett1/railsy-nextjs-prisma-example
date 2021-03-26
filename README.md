@@ -8,6 +8,7 @@ This is a boilerplate for a full-stack web app using:
 - [Formik](https://formik.org/) and [Yup](https://www.npmjs.com/package/yup) for forms and validation
 - [Next-auth]() for authentication
 - Sass for styling
+- [Cypress](https://www.cypress.io/) for integration tests
 
 It contains a basic "post" model. Users can view a list of posts and click on one to see it in detail.
 
@@ -39,4 +40,8 @@ It follows the example of Rails - with MVC and CRUD patterns that should seem fa
 - `pages/api` contains API routes that overlap closely with Rails controller actions
 - The remainder of `pages` contains React/Next.js views
 
-`components` contains reusable React components and everything else is in `lib`.
+Other directories:
+
+- `components` contains reusable React components
+- `cypress` contains integration tests, their config and fixtures
+- `lib` contains everything else
