@@ -20,7 +20,7 @@ const PostForm = ({ initialValues, onSubmit }) => {
           )}
           <Field name="content" id="content" as="textarea" />
 
-          <button disabled={isSubmitting}>Save changes</button>
+          <button>Save changes</button>
         </Form>
       )}
     </Formik>
