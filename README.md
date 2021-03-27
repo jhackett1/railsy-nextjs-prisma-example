@@ -31,7 +31,7 @@ npx create-next-app -e https://github.com/jhackett1/railsy-nextjs-prisma-example
 
 This will clone the repo and install the dependencies with [create-next-app](https://nextjs.org/docs/api-reference/create-next-app).
 
-You can apply the schema to a fresh database with `npm run schema:load`.
+You can apply the schema to a fresh database with `npm run db:schema:load` and seed it with `npm run db:seed`.
 
 You can then boot it up with `npm run dev`. It will be on [localhost:3000/posts](http://localhost:3000/posts)
 
