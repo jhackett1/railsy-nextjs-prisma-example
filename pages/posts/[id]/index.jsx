@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import Layout from "../../../components/Layout"
 import Router from "next/router"
 import { useSession } from "next-auth/client"
+import Dialog from "../../../components/Dialog"
 
 export const getServerSideProps = async ({ req, params }) => {
   const res = await fetch(
@@ -23,6 +24,7 @@ const destroyPost = async id => {
 
 const Show = ({ id, title, content }) => {
   const [session, loading] = useSession()
+  const [destroyDialogOpen, setDestroyDialogOpen] = useState(false)
 
   return (
     <Layout>
@@ -41,13 +43,21 @@ const Show = ({ id, title, content }) => {
             <a>Edit</a>
           </Link>
 
-          <button onClick={() => destroyPost(id)}>Destroy</button>
+          <button onClick={() => setDestroyDialogOpen(true)}>Destroy</button>
         </>
       )}
 
       <Link href="/posts">
         <a>Back to posts</a>
       </Link>
+
+      <Dialog
+        isOpen={destroyDialogOpen}
+        onDismiss={() => setDestroyDialogOpen(false)}
+        title="Are you sure you want to destroy this post?"
+      >
+        <button onClick={() => destroyPost(id)}>Yes, destroy</button>
+      </Dialog>
     </Layout>
   )
 }
