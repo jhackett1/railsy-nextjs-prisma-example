@@ -27,7 +27,7 @@ jobs:
           postgresql password: "postgres"
 
       - name: Apply database schema
-        run: prisma db push --preview-feature
+        run: npx prisma db push --preview-feature
 
       - name: Integration tests
         uses: cypress-io/github-action@v2
