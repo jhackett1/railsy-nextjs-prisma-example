@@ -6,8 +6,9 @@ This is a boilerplate for a full-stack web app using:
 - [Next.js](https://next.js.org/) for rendering, routing, API routes and bundling code
 - [Prisma](https://www.prisma.io/) for talking to a PostgreSQL database
 - [Formik](https://formik.org/) and [Yup](https://www.npmjs.com/package/yup) for forms and validation
-- [Next-auth]() for authentication
+- [Next-auth](https://next-auth.js.org/) for authentication
 - Sass for styling
+- [Jest]() and [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) for unit tests
 - [Cypress](https://www.cypress.io/) for integration tests
 
 It contains a basic "post" model. Users can view a list of posts and click on one to see it in detail.
@@ -24,7 +25,15 @@ npx create-next-app -e https://github.com/jhackett1/railsy-nextjs-prisma-example
 
 This will clone the repo and install the dependencies with [create-next-app](https://nextjs.org/docs/api-reference/create-next-app).
 
-You can boot it up with `npm run dev`. It will be on [localhost:3000/posts](http://localhost:3000/posts)
+Next, apply the database schema with `npm run schema:load`.
+
+You can then boot it up with `npm run dev`. It will be on [localhost:3000/posts](http://localhost:3000/posts)
+
+## 🧪 Testing
+
+You can run the Jest unit tests with `npm test`.
+
+Cypress end-to-end tests can be run with `npm run cypress`, provided a local server is already running.
 
 ## 🧬 Configuration
 

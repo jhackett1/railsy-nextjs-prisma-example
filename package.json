@@ -7,8 +7,8 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "test": "jest",
-    "test:e2e:open": "cypress open",
-    "test:e2e:run": "cypress run"
+    "cypress": "cypress open",
+    "schema:load": "prisma db push --preview-feature"
   },
   "keywords": [],
   "author": "",
