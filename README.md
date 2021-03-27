@@ -1,6 +1,6 @@
 # Modern app boilerplate
 
-This is a boilerplate for a production-ready full-stack web app.
+This is a worked example of a production-ready full-stack web app.
 
 Major bits:
 
