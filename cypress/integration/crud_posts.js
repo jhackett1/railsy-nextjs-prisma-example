@@ -1,9 +1,12 @@
-describe("My First Test", () => {
+describe("Posts", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/posts")
+    cy.task("resetDb")
+    cy.visit("/posts")
+    // cy.intercept("/api/posts", { fixture: "posts.json" })
+    // cy.intercept("/api/posts/1", { fixture: "post.json" })
   })
 
-  it("Does not do much!", () => {
-    expect(true).to.equal(true)
+  it("shows a list and post detail page", () => {
+    cy.get("h1").should("contain", "Posts")
   })
 })

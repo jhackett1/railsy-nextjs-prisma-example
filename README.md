@@ -36,7 +36,7 @@ You can supply these with a `.env` file locally. Run `cp .env.sample .env` to ma
 
 It follows the example of Rails - with MVC and CRUD patterns that should seem familiar.
 
-- `prisma/schema.prisma` contains the database models
+- `prisma` contains the database schema and seed data
 - `pages/api` contains API routes that overlap closely with Rails controller actions
 - The remainder of `pages` contains React/Next.js views
 
