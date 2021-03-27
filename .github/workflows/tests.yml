@@ -10,7 +10,7 @@ jobs:
         run: npm i
 
       - name: Run unit tests
-        run: npm run test:unit
+        run: npm test
 
       - name: Integration tests
         uses: cypress-io/github-action@v2
