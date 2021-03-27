@@ -12,12 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm i
-
-      - name: Run unit tests
-        run: npm test
-
       - name: Set up test database
         uses: harmon758/postgresql-action@v1
         with:
@@ -25,6 +19,12 @@ jobs:
           postgresql db: "postgres"
           postgresql user: "postgres"
           postgresql password: "postgres"
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run unit tests
+        run: npm test
 
       - name: Apply database schema
         run: npx prisma db push --preview-feature
