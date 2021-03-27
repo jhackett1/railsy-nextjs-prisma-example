@@ -60,3 +60,10 @@ Other directories:
 - `components` contains reusable React components
 - `cypress` contains integration tests, their config and fixtures
 - `lib` contains everything else
+
+## To do
+
+Need to add examples for:
+
+1. Flash messages. Is this a good pattern to continue with? Would toast messages be a better fit?
+2. Background job queue, maybe with [BullMQ](https://github.com/taskforcesh/bullmq)
