@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: "postgresql://postgres:@localhost:5432/postgres"
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
       NEXT_PUBLIC_API_HOST: "http://localhost:3000"
       NEXTAUTH_URL: "http://localhost:3000"
 
@@ -24,6 +24,7 @@ jobs:
           postgresql version: "11"
           postgresql db: "postgres"
           postgresql user: "postgres"
+          postgresql password: "postgres"
 
       - name: Integration tests
         uses: cypress-io/github-action@v2
