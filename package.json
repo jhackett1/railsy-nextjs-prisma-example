@@ -8,7 +8,8 @@
     "start": "next start",
     "test": "jest",
     "cypress": "cypress open",
-    "schema:load": "prisma db push --preview-feature"
+    "db:schema:load": "prisma db push --preview-feature",
+    "db:seed": "prisma db seed --preview-feature"
   },
   "keywords": [],
   "author": "",
